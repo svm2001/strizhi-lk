@@ -1,0 +1,13 @@
+mixin popupProfile()
+  .popup.popupCustom.popupProfile(id="profile")
+    .popup__body
+      .popup__content
+        form.profile__change-agency
+          h3 Запрос на изменение данных
+          textarea(required name="profile" placeholder="Укажите название нового агентства недвижимости").profile__change-agency-textarea
+          .popup__btns
+            button.btn__orange.js-change-agency Отправить
+        .profile__success-message
+          p Успешно!
+          p Агенство недвижимости изменено.
+        button.popup__close(title="Закрыть")

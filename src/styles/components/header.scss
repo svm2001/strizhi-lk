@@ -1,0 +1,308 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+input {
+  border-radius: 0!important;
+}
+
+html.mobile.landscape {
+  @include responsive.media-breakpoint-down(1024) {
+    .menu_openFull {
+      display: none!important;
+    }
+
+    .side-menu.small-tablet {
+      overflow-y: scroll;
+    }
+
+    .menuManager {
+      padding-bottom: 60px;
+
+    }
+
+    .sendNotification, .sendNotification__step-2 {
+      top: 10px!important;
+      z-index: 9999;
+      overflow-y: scroll;
+      max-height: 280px;
+    }
+  }
+}
+
+.lk-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 9999;
+  &-top {
+    background: vars.$white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    a {
+      position: relative;
+      color: vars.$gray;
+      font-size: 14px;
+      padding-left: 24px;
+      transition: .3s;
+      width: max-content;
+      &:hover {
+        color: vars.$orange;
+      }
+      &:hover:before {
+        background-image: url("/src/icons/arr-left-orange.svg");
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("/src/icons/arr-left-gray.svg");
+        width: 24px;
+        height: 24px;
+        transition: .3s;
+      }
+    }
+  }
+  &-main {
+    display: flex;
+    align-items: center;
+    background: vars.$black;
+    min-height: 56px;
+    max-height: 56px;
+    @include responsive.media-breakpoint-down(680) {
+      min-height: 58px;
+      max-height: 58px;
+    }
+    .container__2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include responsive.media-breakpoint-down(680) {
+        justify-content: flex-start;
+        &.between {
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    max-width: 186px;
+    img {
+      width: 100%;
+    }
+    @include responsive.media-breakpoint-down(680) {
+      margin-top: 4px;
+      max-width: 159px;
+      padding-left: 15px;
+      transition: .3s;
+      &.active {
+        padding-left: 0;
+      }
+    }
+  }
+  &__wrapper {
+    display: flex;
+    @include responsive.media-breakpoint-down(680) {
+      width: 0;
+      & > .btn__orange.sendNotification__btn, & > .btn__logout {
+        transform: scale(0);
+        opacity: 1;
+        visibility: hidden;
+        width: 0;
+      }
+    }
+    .btn__orange {
+      max-width: 244px;
+      max-height: 51px;
+      height: 51px;
+      margin-right: 16px;
+    }
+    .btn__logout {
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: vars.$white;
+      padding-left: 36px;
+      transition: .3s;
+      width: max-content;
+      &:hover {
+        color: vars.$orange;
+      }
+      &:hover:before {
+        background-image: url("/src/icons/logout-orange.svg");
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("/src/icons/logout.svg");
+        width: 24px;
+        height: 24px;
+        transition: .3s;
+      }
+    }
+  }
+  &__profile {
+    border-radius: 999px;
+    width: 32px;
+    height: 32px;
+    background: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    &:hover {
+      background: vars.$white;
+      span {
+        color: #333333;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      color: vars.$white;
+    }
+    @include responsive.media-breakpoint-down(680) {
+      display: none;
+    }
+  }
+}
+
+.burger__menu {
+  display: none;
+  position: fixed;
+  left: -100%;
+  width: 100%;
+  z-index: 4;
+  top: 98px;
+  height: calc(100% - 98px);
+  background: vars.$black;
+  transition: .3s ease-in-out;
+  @include responsive.media-breakpoint-down(680) {
+    display: block;
+    &.active {
+      left: 0;
+    }
+    .btn__wrapper {
+      padding: 24px 0;
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .btn__logout {
+      padding-top: 0;
+      color: vars.$white;
+      position: relative;
+      padding-left: 36px;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: -1px;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("/src/icons/logout.svg");
+        width: 24px;
+        height: 24px;
+        transition: 0.3s;
+      }
+    }
+
+    .btn__burger-support {
+      padding-top: 36px;
+      color: vars.$white;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 14px;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 34px;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("/src/icons/ChatDots.svg");
+        width: 24px;
+        height: 24px;
+        transition: 0.3s;
+      }
+    }
+
+    .sendNotification__btn {
+      color: vars.$orange;
+      font-size: 17px;
+      &:before {
+        display: block!important;
+        background-image: url("/src/icons/menu/PlusCircleOrange.svg");
+      }
+    }
+
+    .btn__wrapper:nth-child(2), .btn__wrapper:nth-child(3) {
+      border-top: none;
+    }
+
+    .menu__item span {
+      font-size: 18px;
+      color: vars.$white
+    }
+
+    .menu__item svg path {
+      stroke: #ffffff;
+    }
+
+    .menu__item.active svg path {
+      stroke: #E05931;
+    }
+
+    .menu__item.active span {
+      color: vars.$orange;
+    }
+
+    .menu__item-svg {
+      height: 24px;
+    }
+
+    .menu__item {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      svg {
+        margin-right: 14px;
+      }
+    }
+
+    .burger__menu__name {
+      font-size: 21px;
+      color: vars.$white;
+      margin-bottom: 24px;
+    }
+
+    .menuManager__title {
+      color: vars.$gray;
+      font-size: 17px;
+      margin-bottom: 8px;
+      line-height: 23px;
+    }
+
+    .menuManager__name {
+      font-size: 17px;
+      color: vars.$white;
+      margin-bottom: 10px;
+      line-height: 23px;
+    }
+  }
+}

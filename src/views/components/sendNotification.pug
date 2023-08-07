@@ -1,0 +1,36 @@
+mixin sendNotification()
+  .sendNotification
+    .sendNotification__wrapper
+      .sendNotification__top.mobile
+        span Отправка уведомления
+        a.sendNotification__top-close
+          img(src=require("../../icons/menu/close.svg") alt="close")
+      p.sendNotification__text.mobile Проверка номера
+      p.sendNotification__text Получая уведомление на клиента, мы оперативно связываемся с ним для организации встречи и экскурсии, при этом гарантируем обмен актуальной информацией с вами.
+      p.sendNotification__title.hidden Отправить уведомление
+      form
+        input.sendNotification__tel1(type="tel" autocomplete="off" name="sendNotification_tel" placeholder="+7 (900) 000-00-00" required)
+        a.btn__orange.sendNotification__checkBtn Проверить
+  .sendNotification__step-2
+    .sendNotification__wrapper
+      .sendNotification__top.mobile
+        span Отправка уведомления
+        a.sendNotification__top-close
+      a.sendNotification__close(title='Закрыть окно')
+        img(src=require("../../icons/menu/close.svg") alt="close")
+      p.sendNotification__new-client Новый клиент успешно добавлен!
+      a.link__orange.mobile
+        img(src=require("../../icons/menu/left-arr-gray.svg") alt="arrow-icon")
+        | К проверке номера
+      p.sendNotification__new-client.show Новый клиент
+      p.sendNotification__text Получая уведомление на клиента, мы оперативно связываемся с ним для организации встречи и экскурсии, при этом гарантируем обмен актуальной информацией с вами.
+      p.sendNotification__title.hidden Отправить уведомление
+      p.sendNotification__sended-success.mobile Он появится в разделе Мои клиенты
+      form
+        a.link__orange.desktop Вернуться к проверке
+        input(type="tel" name="sendNotification_tel" readonly placeholder="+7 (900) 000-00-00" required)
+        input(type="text" name="sendNotification_surname" placeholder="Фамилия")
+        input(type="text" name="sendNotification_name" placeholder="Имя" required)
+        input(type="text" name="sendNotification_thirdName" placeholder="Отчество" )
+        textarea(name="sendNotification_portrait" placeholder="Портрет клиента")
+        button.btn__orange Отправить

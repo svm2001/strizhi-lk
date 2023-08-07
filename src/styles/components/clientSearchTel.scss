@@ -1,0 +1,140 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.clientSearchTel {
+  &__top {
+    display: none;
+  }
+  @include responsive.media-breakpoint-down(680) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: vars.$white;
+    padding: 0 16px;
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      background: vars.$white;
+      position: relative;
+      margin-bottom: 16px;
+      &:before {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        width: calc(100% + 32px);
+        left: -16px;
+        height: 1px;
+        background: vars.$lightgray;
+      }
+      span {
+        font-size: 18px;
+        font-weight: 500;
+        position: relative;
+      }
+    }
+  }
+  &__back-to-main {
+    display: flex;
+    align-items: center;
+    color: vars.$gray;
+    width: max-content;
+    margin-bottom: 32px;
+    @include responsive.media-breakpoint-down(374) {
+      margin-bottom: 17px;
+    }
+    &:hover {
+      color: vars.$orange;
+      svg path {
+        stroke: #E05931;
+      }
+    }
+  }
+  h1 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    line-height: 40px;
+    @include responsive.media-breakpoint-down(374) {
+      font-size: 22px;
+      margin-bottom: 23px;
+      line-height: 27px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 28px;
+    margin-bottom: 30px;
+    max-width: 578px;
+    border-bottom: 1px solid vars.$lightgray;
+  }
+  &__item {
+    &:not(:nth-last-child(1)) {
+      margin-bottom: 12px;
+    }
+    display: flex;
+    align-items: center;
+  }
+  &__box:nth-child(1) {
+    font-size: 17px;
+    color: vars.$gray;
+    margin-right: 24px;
+    min-width: 149px;
+    @include responsive.media-breakpoint-down(680) {
+      font-size: 16px;
+    }
+    @include responsive.media-breakpoint-down(374) {
+      font-size: 14px;
+      min-width: 128px;
+    }
+  }
+
+  &__box:nth-child(2) {
+    color: vars.$black;
+    font-size: 17px;
+    @include responsive.media-breakpoint-down(680) {
+      font-size: 16px;
+    }
+    @include responsive.media-breakpoint-down(374) {
+      font-size: 14px;
+    }
+  }
+
+  &__box--tel {
+    color: vars.$orange!important;
+    transition: .3s;
+    &:hover {
+      color: #C53B12;
+    }
+  }
+
+  &__warning {
+    max-width: 578px;
+    p {
+      color: vars.$gray;
+      padding-left: 28px;
+      font-size: 17px;
+      line-height: 23px;
+      position: relative;
+      @include responsive.media-breakpoint-down(680) {
+        font-size: 16px;
+        line-height: 22px;
+      }
+      &:before {
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        background-image: url("/src/icons/clients/warningICON.svg");
+        top: 0;
+        left: 0;
+    }
+    }
+  }
+}

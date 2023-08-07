@@ -1,0 +1,368 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.clientsIn {
+  &__back-to-main {
+    display: flex;
+    align-items: center;
+    color: vars.$gray;
+    width: max-content;
+    margin-bottom: 32px;
+    @include responsive.media-breakpoint-down(680) {
+      margin-bottom: 24px;
+    }
+    @include responsive.media-breakpoint-down(374) {
+      margin-bottom: 17px;
+    }
+    &:hover {
+      color: vars.$orange;
+      svg path {
+        stroke: #E05931;
+      }
+    }
+  }
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 24px;
+    @include responsive.media-breakpoint-down(680) {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    @include responsive.media-breakpoint-down(680) {
+      font-size: 18px;
+    }
+  }
+
+  &__list, &__audio-list, &__comment-list {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid vars.$lightgray;
+    flex-direction: column;
+    @include responsive.media-breakpoint-down(680) {
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__comment-list {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  &__item {
+    display: flex;
+    @include responsive.media-breakpoint-down(680) {
+      flex-direction: column;
+    }
+    &:not(:nth-last-of-type(1)) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__box {
+    font-size: 17px;
+    &:nth-child(1) {
+      color: vars.$gray;
+      min-width: 155px;
+      margin-right: 24px;
+      @include responsive.media-breakpoint-down(680) {
+        margin-right: 0;
+        margin-bottom: 6px;
+        min-width: 100%;
+      }
+    }
+    &--date {
+      display: flex;
+      button {
+        transition: .5s;
+        margin-left: 6px;
+        &.updated {
+          transform: rotate(180deg) translateY(2px);
+        }
+      }
+    }
+    &--label {
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 14px;
+      text-align: center;
+      max-width: max-content;
+    }
+    &--red {
+      color: vars.$red;
+      border: 1px solid vars.$lightred;
+    }
+    &--gray {
+      color: vars.$gray;
+      border: 1px solid vars.$lightgray;
+    }
+    &--orange {
+      color: vars.$orange;
+      border: 1px solid vars.$lightorange;
+    }
+    &--green {
+      color: vars.$green;
+      border: 1px solid vars.$lightgreen;
+    }
+    &--blue {
+      color: vars.$blue;
+      border: 1px solid vars.$lightblue;
+    }
+  }
+
+  &__audio-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__audio-item {
+    display: flex;
+    align-items: center;
+    @include responsive.media-breakpoint-down(680) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__audio-item:not(:nth-last-of-type(1)) {
+    margin-bottom: 16px;
+    @include responsive.media-breakpoint-down(680) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__audio-date {
+    span {
+      font-size: 17px;
+      @include responsive.media-breakpoint-down(680) {
+        font-size: 16px;
+      }
+      &:not(:nth-last-of-type(1)) {
+        padding-right: 4px;
+      }
+    }
+    margin-right: 22px;
+    @include responsive.media-breakpoint-down(680) {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  audio {
+    //filter: saturate(10%) grayscale(0.5) contrast(50%) invert(99%);
+    width: 432px;
+    max-width: 432px;
+    height: 30px;
+    max-height: 32px!important;
+    @include responsive.media-breakpoint-down(680) {
+      width: 343px;
+      max-width: 343px;
+    }
+    @include responsive.media-breakpoint-down(374) {
+      width: 285px;
+      max-width: 285px;
+    }
+
+  }
+  audio::-webkit-media-controls {
+    width: inherit;
+    height: inherit;
+    position: relative;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  audio::-webkit-media-controls-enclosure {
+    width: 100%;
+    max-width: 800px;
+    height: 30px;
+    flex-shrink: 0;
+    bottom: 0;
+    text-indent: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  audio::-webkit-media-controls-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    -webkit-user-select: none;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+    text-align: right;
+    bottom: auto;
+    height: 30px;
+    background-color: rgba(20, 20, 20, 0.4);
+    border-radius: 0px;
+    transition: opacity 0.3s;
+  }
+  audio:-webkit-full-page-media {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  audio:-webkit-full-page-media::-webkit-media-controls-panel{
+    bottom: 0px;
+  }
+  audio::-webkit-media-controls-mute-button {
+    -webkit-appearance: media-mute-button;
+    display: flex;
+    flex: none;
+    border: none;
+    box-sizing: border-box;
+    width: 35px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 6px 0 0;
+    padding: 0;
+    background-color: initial;
+    color: inherit;
+    cursor: pointer;
+  }
+  audio::-webkit-media-controls-overlay-enclosure {
+    display: none;
+  }
+  audio::-webkit-media-controls-play-button {
+    cursor: pointer;
+    -webkit-appearance: media-play-button;
+    display: flex;
+    flex: none;
+    border: none;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 9px;
+    margin-right: 9px;
+    padding: 0;
+    background-color: initial;
+    color: inherit;
+  }
+  audio::-webkit-media-controls-timeline-container {
+    -webkit-appearance: media-controls-background;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1;
+    -webkit-user-select: none;
+    height: 16px;
+    min-width: 0;
+  }
+  audio::-webkit-media-controls-current-time-display,
+  audio::-webkit-media-controls-time-remaining-display {
+    -webkit-appearance: media-current-time-display;
+    -webkit-user-select: none;
+    flex: none;
+    display: flex;
+    border: none;
+    cursor: default;
+    height: 30px;
+    margin: 0 9px 0 0;
+    padding: 0;
+    line-height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    color: white;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-shadow: none;
+    text-decoration: none;
+  }
+  audio::-webkit-media-controls-timeline {
+    -webkit-appearance: media-slider;
+    display: flex;
+    flex: 1 1 auto;
+    height: 8px;
+    margin: 0 15px 0 0;
+    padding: 0;
+    background-color: transparent;
+    min-width: 25px;
+    border: initial;
+    color: inherit;
+  }
+  audio::-webkit-media-controls-volume-slider {
+    -webkit-appearance: media-volume-slider;
+    display: flex;
+    flex: 1 1.9 auto;
+    height: 8px;
+    max-width: 70px;
+    margin: 0 15px 0 0;
+    padding: 0;
+    background-color: transparent;
+    min-width: 15px;
+    border: initial;
+    color: inherit;
+  }
+  audio::-webkit-media-controls-fullscreen-button {
+    -webkit-appearance: media-enter-fullscreen-button;
+    display: flex;
+    flex: none;
+    border: none;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: -5px;
+    margin-right: 9px;
+    padding: 0;
+    background-color: initial;
+    color: inherit;
+  }
+  audio::-webkit-media-controls-toggle-closed-captions-button {
+    display: none;
+  }
+  audio::-webkit-media-controls-fullscreen-volume-slider {
+    display: none;
+  }
+  audio::-webkit-media-controls-fullscreen-volume-min-button{
+    display: none;
+  }
+  audio::-webkit-media-controls-fullscreen-volume-max-button {
+    display: none;
+  }
+
+  &__comment-item {
+    &:not(:nth-last-of-type(1)) {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid vars.$lightgray;
+    }
+  }
+
+  &__comment-box:nth-child(1) {
+    margin-bottom: 8px;
+    font-size: 17px;
+  }
+  &__comment-box:nth-child(2) {
+    color: vars.$gray;
+    font-size: 17px;
+  }
+
+
+
+  @include responsive.media-breakpoint-down(680) {
+    .pagination {
+      justify-content: center;
+    }
+  }
+
+
+
+}

@@ -1,0 +1,60 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.side-menu {
+  max-width: 221px;
+  min-width: 221px;
+  margin-right: 32px;
+  @include responsive.media-breakpoint-down(991) {
+    max-width: 175px;
+    min-width: 175px;
+  }
+
+  &__wrapper {
+    position: sticky;
+    top: 144px;
+    @include responsive.media-breakpoint-down(991) {
+      top: 0;
+    }
+  }
+
+  .menuManager__title {
+    color: vars.$gray;
+    margin-bottom: 8px;
+    font-size: 17px;
+    transition: .3s;
+  }
+  .menuManager__name {
+    color: vars.$black;
+    margin-bottom: 10px;
+    font-size: 17px;
+    transition: .3s;
+  }
+  .menu__name {
+    font-size: 21px;
+    margin-bottom: 24px;
+    @include responsive.media-breakpoint-down(991) {
+      display: none;
+    }
+  }
+  .menu__send-note {
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid vars.$lightgray;
+    @include responsive.media-breakpoint-down(680) {
+      display: none;
+    }
+  }
+  .menu {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid vars.$lightgray;
+  }
+}
+
+

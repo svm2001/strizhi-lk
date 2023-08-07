@@ -1,0 +1,45 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  @include responsive.media-breakpoint-down(1280) {
+    max-width: 944px;
+  }
+  @include responsive.media-breakpoint-down(991) {
+    max-width: 720px;
+  }
+  @include responsive.media-breakpoint-down(768) {
+    max-width: 100%;
+    padding: 0 24px;
+  }
+  @include responsive.media-breakpoint-down(680) {
+    padding: 0 16px;
+  }
+
+
+  &__2 {
+    max-width: 1200px;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    @include responsive.media-breakpoint-down(1280) {
+      max-width: 944px;
+    }
+    @include responsive.media-breakpoint-down(991) {
+      max-width: 720px;
+    }
+    @include responsive.media-breakpoint-down(768) {
+      max-width: 100%;
+      padding: 0 24px;
+    }
+    @include responsive.media-breakpoint-down(680) {
+      padding: 0 16px;
+    }
+  }
+}
+
+

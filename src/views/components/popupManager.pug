@@ -1,0 +1,18 @@
+mixin popupManager()
+  .popup.popupCustom.popupManager(id="manager")
+    .popup__body
+      .popup__content
+        h3 Выберите менеджера, с которым&nbsp;хотите работать
+        form
+          select.sort.js-select2(name="sort")
+            option Артем Белокобыльский
+            option Олег Сазонов
+            option Константин Константинопольский
+            option Валерий Оков
+            option Владимир Воеводин
+            option Ольга Светлова
+            option Анастасия Меркулова
+          .popup__btns.popup__btns--double
+            button.popup__close.btn__white Отменить
+            button.btn__orange Выбрать
+        button.popup__close(title="Закрыть")

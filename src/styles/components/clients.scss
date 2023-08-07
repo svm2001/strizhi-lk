@@ -1,0 +1,52 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.clients__list {
+  .deals__item {
+    @include responsive.media-breakpoint-down(768) {
+      justify-content: flex-start;
+    }
+  }
+  .deals__item-box--first {
+    flex-basis: 37%;
+    @include responsive.media-breakpoint-down(1280) {
+      flex-basis: 22%;
+    }
+    @include responsive.media-breakpoint-down(991) {
+      flex-basis: 100%;
+    }
+    .deals__item-title {
+      width: max-content;
+      &:hover {
+        color: vars.$orange;
+      }
+    }
+  }
+  .deals__item-box--second,
+  .deals__item-box--third,
+  .deals__item-box--fourth {
+    flex-basis: 21%;
+    @include responsive.media-breakpoint-down(991) {
+      flex-basis: 33.33%;
+    }
+    @include responsive.media-breakpoint-down(768) {
+      flex-basis: 30%;
+    }
+    @include responsive.media-breakpoint-down(680) {
+      flex-basis: 100%;
+    }
+  }
+
+  .deals__item-box--second p:nth-child(2){
+    display: flex;
+    align-items: center;
+    .date-update {
+      margin-left: 8px;
+      margin-top: 1px;
+      transition: .5s;
+      &.updated {
+        transform: rotate(360deg) translateY(2px);
+      }
+    }
+  }
+}

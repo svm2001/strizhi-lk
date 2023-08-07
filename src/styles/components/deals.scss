@@ -1,0 +1,298 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.with-header.default {
+  padding-top: 96px;
+  @include responsive.media-breakpoint-down(680) {
+    margin-top: 156px;
+    padding-top: 0;
+  }
+}
+
+.deals {
+  &__wrapper {
+    display: flex;
+    padding-top: 48px;
+    @include responsive.media-breakpoint-down(991) {
+      padding-top: 0;
+    }
+    @include responsive.media-breakpoint-down(680) {
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 52px;
+      @include responsive.media-breakpoint-down(680) {
+        font-size: 35px;
+      }
+    }
+  }
+  &__main {
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+    &.empty {
+      margin-bottom: 0!important;
+    }
+    @include responsive.media-breakpoint-down(680) {
+      margin-bottom: 60px;
+    }
+    @include responsive.media-breakpoint-down(991) {
+      padding-top: 40px;
+      &.open {
+        padding-left: 80px;
+        transition: .3s;
+        @include responsive.media-breakpoint-down(680) {
+          padding-left: 0;
+        }
+        &::before {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0,0,0,.5);
+          content:'';
+          @include responsive.media-breakpoint-down(680) {
+            z-index: 1;
+          }
+        }
+      }
+    }
+    @include responsive.media-breakpoint-down(680) {
+      min-height: calc(100vh - 156px);
+      //min-height:100%;
+      padding-top: 15px;
+    }
+  }
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 104px;
+    margin-top: 92px;
+    img {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 16px auto;
+    }
+
+    p:nth-child(2) {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 40px;
+      margin-bottom: 16px;
+      text-align: center;
+      @include responsive.media-breakpoint-down(680) {
+        font-size: 28px;
+      }
+    }
+
+    p:nth-child(3) {
+      font-size: 18px;
+      color: vars.$gray;
+      text-align: center;
+      @include responsive.media-breakpoint-down(680) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__num {
+    p, span {
+      color: vars.$gray;
+      font-size: 17px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    //padding-bottom: 32px;
+  }
+
+  &__item {
+    border-radius: 8px;
+    border: 1px solid vars.$lightgray;
+    transition: .3s;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    @include responsive.media-breakpoint-down(680) {
+      padding: 16px;
+    }
+    @include responsive.media-breakpoint-down(374) {
+      padding: 12px;
+    }
+    @include responsive.media-breakpoint-down(991) {
+      flex-wrap: wrap;
+    }
+    &-box {
+      p {
+        font-size: 17px;
+        @include responsive.media-breakpoint-down(991) {
+          font-size: 16px;
+        }
+      }
+      &--first {
+        flex-basis: 47.73%;
+        @include responsive.media-breakpoint-down(1280) {
+          flex-basis: 35%;
+        }
+        @include responsive.media-breakpoint-down(991) {
+          flex-basis: 100%;
+          border-bottom: 1px solid vars.$lightgray;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+        }
+        @include responsive.media-breakpoint-down(680) {
+          padding-bottom: 16px;
+          margin-bottom: 16px;
+        }
+        @include responsive.media-breakpoint-down(374) {
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+        }
+
+        .deals__item-title {
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 10px;
+          @include responsive.media-breakpoint-down(991) {
+            margin-bottom: 0;
+            margin-right: 10px;
+          }
+          @include responsive.media-breakpoint-down(374) {
+            font-size: 14px;
+          }
+        }
+      }
+      &--second {
+        flex-basis: 24.26%;
+        @include responsive.media-breakpoint-down(1280) {
+          flex-basis: 29%;
+        }
+        @include responsive.media-breakpoint-down(991) {
+          flex-basis: 44%;
+        }
+        @include responsive.media-breakpoint-down(680) {
+          flex-basis: 100%;
+          margin-bottom: 18px;
+        }
+        @include responsive.media-breakpoint-down(374) {
+          p {
+            font-size: 14px;
+          }
+        }
+        p:nth-child(1) {
+          color: vars.$gray;
+          margin-bottom: 6px;
+          @include responsive.media-breakpoint-down(680) {
+            margin-bottom: 9px;
+          }
+        }
+        p:nth-child(2) {
+          margin-bottom: 4px;
+          @include responsive.media-breakpoint-down(680) {
+            margin-bottom: 6px;
+          }
+        }
+      }
+      &--third {
+        flex-basis: 16.66%;
+        @include responsive.media-breakpoint-down(1280) {
+          flex-basis: 18%;
+        }
+        @include responsive.media-breakpoint-down(991) {
+          flex-basis: 25%;
+        }
+        @include responsive.media-breakpoint-down(680) {
+          flex-basis: 100%;
+          margin-bottom: 18px;
+        }
+        @include responsive.media-breakpoint-down(374) {
+          p {
+            font-size: 14px;
+          }
+        }
+        p:nth-child(1) {
+          color: vars.$gray;
+          margin-bottom: 6px;
+          @include responsive.media-breakpoint-down(680) {
+            margin-bottom: 8px;
+          }
+        }
+      }
+      &--fourth {
+        flex-basis: 11.35%;
+        @include responsive.media-breakpoint-down(1280) {
+          flex-basis: 18%;
+        }
+        @include responsive.media-breakpoint-down(991) {
+          flex-basis: 25%;
+        }
+        @include responsive.media-breakpoint-down(680) {
+          flex-basis: 100%;
+        }
+        @include responsive.media-breakpoint-down(374) {
+          p {
+            font-size: 14px;
+          }
+        }
+        p:nth-child(1) {
+          color: vars.$gray;
+          margin-bottom: 6px;
+          @include responsive.media-breakpoint-down(680) {
+            margin-bottom: 8px;
+          }
+        }
+        p:nth-child(2) {
+          white-space: nowrap;
+        }
+      }
+    }
+    &-label {
+      font-size: 14px;
+      padding: 2px 8px;
+      border-radius: 30px;
+      width: max-content;
+      @include responsive.media-breakpoint-down(374) {
+        font-size: 12px;
+      }
+      &--red {
+        color: vars.$red;
+        border: 1px solid vars.$lightred;
+      }
+      &--orange {
+        color: vars.$orange;
+        border: 1px solid vars.$lightorange;
+      }
+      &--green {
+        color: vars.$green;
+        border: 1px solid vars.$lightgreen;
+      }
+      &--blue {
+        color: vars.$blue;
+        border: 1px solid vars.$lightblue;
+      }
+      &--gray {
+        color: vars.$gray;
+        border: 1px solid vars.$lightgray;
+      }
+    }
+    &:hover {
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);;
+    }
+    &:not(:nth-last-child(1)) {
+      margin-bottom: 16px;
+      @include responsive.media-breakpoint-down(680) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

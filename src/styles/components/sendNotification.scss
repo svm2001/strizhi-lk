@@ -1,0 +1,284 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.sendNotification, .sendNotification__step-2 {
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  position: fixed;
+  z-index: 4;
+  top: 120px;
+  min-width: 419px;
+  max-width: 419px;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 1px 40px 0 rgba(0, 0, 0, 0.10);;
+  background: vars.$white;
+  left: 50%;
+  transform: translateX(-50%);
+  &__new-client {
+    display: none;
+  }
+
+  &__btn {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      border-radius: 999px;
+      top: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("/src/icons/menu/PlusCircle.svg");
+      @include responsive.media-breakpoint-down(680) {
+        display: none;
+      }
+    }
+  }
+
+  .link__orange.mobile {
+    display: none;
+  }
+
+  &__close {
+    display: none;
+  }
+
+  &__sended-success.mobile {
+    display: none;
+  }
+  @include responsive.media-breakpoint-down(680) {
+    z-index: 99999;
+    input {
+      border-radius: 0!important;
+    }
+    .sendNotification__close {
+      display: block!important;
+    }
+    transform: translateX(0);
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    padding: 16px;
+    &__top.mobile {
+      display: flex!important;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      position: relative;
+      margin-bottom: 32px;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: calc(100% + 32px);
+        left: -16px;
+        height: 1px;
+        background: vars.$lightgray;
+      }
+      span {
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+    &__text.mobile {
+      display: block!important;
+      font-size: 28px;
+      margin-bottom: 24px;
+      color: vars.$black;
+    }
+    .link__orange.desktop, &__title.hidden {
+      display: none;
+    }
+
+    .link__orange.mobile {
+      display: flex;
+      position: static;
+      color: vars.$gray;
+      margin-bottom: 24px;
+      img {
+        margin-top: -2px;
+      }
+    }
+    &__new-client.show {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+    &__tel1 {
+      margin-bottom: 40px!important;
+    }
+  }
+  &__text {
+    color: vars.$gray;
+    font-size: 17px;
+    margin-bottom: 24px;
+    line-height: 23px;
+  }
+
+  &__top.mobile, &__text.mobile {
+    display: none;
+  }
+
+  &__title {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  &__new-client {
+    display: none;
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  form, &__wrapper {
+    position: relative;
+  }
+
+  textarea {
+    max-width: 371px;
+    min-width: 371px;
+    min-height: 133px;
+    max-height: 133px;
+    width: 100%;
+    padding: 16px;
+    color: vars.$black;
+    font-size: 17px;
+    border: 1px solid vars.$gray;
+    resize: none;
+    margin-bottom: 16px;
+    @include responsive.media-breakpoint-down(680) {
+      max-width: 100%;
+      min-width: 100%;
+    }
+    &::placeholder {
+      color: vars.$gray;
+      font-size: 17px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .link__orange {
+    position: absolute;
+    right: 0;
+    top: 9px;
+  }
+
+  .btn__orange {
+    max-width: 100% !important;
+  }
+
+  input {
+    &:focus {
+      outline: none;
+      background: vars.$white;
+    }
+    &::placeholder {
+      color: vars.$gray;
+      font-size: 17px;
+    }
+    background: vars.$white;
+    border: none;
+    border-bottom: 1px solid vars.$gray;
+    color: vars.$black;
+    font-size: 17px;
+    margin-bottom: 16px;
+    width: 100%;
+    height: 39px;
+  }
+
+  .sendNotification__checkBtn {
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@include responsive.media-breakpoint-down(680) {
+  .sendNotification__step-2 {
+    .btn__orange {
+      margin-bottom: 150px;
+    }
+
+    .sendNotification__wrapper {
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 100vh;
+      &::-webkit-scrollbar {
+        width: 0;
+        border-radius: 0;
+        height: 0;
+        appearance: none;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        appearance: none;
+        //height: 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 0;
+        border: none;
+        transition: .3s;
+        appearance: none;
+        &:hover {
+          background-color: transparent;
+          cursor: pointer;
+        }
+      }
+    }
+    .sendNotification__top {
+      margin-bottom: 16px!important;
+    }
+    &.sended {
+      min-width: calc(100% - 32px);
+      max-width: calc(100% - 32px);
+      min-height: 92px;
+      max-height: 92px;
+      left: 16px;
+      top: auto;
+      bottom: 75px;
+      border-radius: 10px;
+      .sendNotification__top, .link__orange.mobile,
+      .sendNotification__new-client.show, .sendNotification__text{
+        display: none!important;
+      }
+
+      .sendNotification__sended-success.mobile {
+        display: block;
+        color: vars.$gray;
+      }
+
+      .sendNotification__close {
+        top: 4px;
+        img {
+          width: 20px;
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  &.center-mode {
+    justify-content: center;
+  }
+  &__separator {
+    width: 41px;
+    height: 41px;
+    max-height: 41px;
+    max-width: 41px;
+    margin: 0 4px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+  }
+  &__item {
+    font-size: 17px;
+    border: 1px solid transparent;
+    transition: .3s;
+    background: vars.$white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41px;
+    height: 41px;
+    max-width: 41px;
+    max-height: 41px;
+    color: vars.$gray;
+    &:hover {
+      background: vars.$lightgray;
+    }
+    &:not(:nth-last-child(1)) {
+      margin-right: 4px;
+    }
+    &.active {
+      border: 1px solid vars.$black;
+      cursor: default;
+      color: vars.$black;
+      &:hover {
+        background: vars.$white;
+      }
+    }
+  }
+}

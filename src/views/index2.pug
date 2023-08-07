@@ -1,0 +1,42 @@
+extends layouts/Main
+
+block title
+  title Авторизация
+block content
+  .wrapper.auth
+    .container
+      .auth__wrapper
+        button.auth__link.js-popup-link(data-popup="signIn") Вход
+
+  .popup(id="signIn")
+    .popup__body
+      .popup__content.auth__inner.sign__in
+        .auth__header
+          .container
+            .auth__header-wrapper
+              span Вход
+              button.popup__close.auth__popup-close(title="Закрыть")
+        .auth__content
+          .container
+            .auth__content-inner
+              .auth__title Вход
+              form.auth__form
+                .auth__form-input-row
+                  label
+                    input(type="email" required name="email" placeholder='Email (обязательно)')
+                .auth__form-input-row
+                  label
+                    input(type="password" required name="password" placeholder='Пароль (обязательно)')
+                a.btn__link Забыли пароль?
+                button.btn__orange.btn__send Войти
+              .sign__in-last
+                span Нет аккаунта?
+                a.btn__link.js-popup-link(data-popup="signUp") Зарегистрируйтесь
+
+
+
+
+
+
+
+

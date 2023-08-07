@@ -1,0 +1,43 @@
+@use '../mixins/responsive';
+@use "../vars";
+
+.superagent {
+  &:not(:nth-last-child(2)) {
+    margin-bottom: 48px;
+    @include responsive.media-breakpoint-down(1280) {
+      margin-bottom: 40px;
+    }
+  }
+  &:nth-last-child(2) {
+    margin-bottom: 32px;
+  }
+  .superagent__title {
+    font-size: 21px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+    @include responsive.media-breakpoint-down(1280) {
+      margin-top: 0;
+    }
+  }
+
+  .deals__item:not(:nth-last-child(1)) {
+    margin-bottom: 24px;
+    @include responsive.media-breakpoint-down(1280) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .btn__white {
+    max-width: 209px;
+    white-space: nowrap;
+    margin: auto;
+    @include responsive.media-breakpoint-down(1280) {
+      margin: 8px auto 0 auto;
+    }
+    @include responsive.media-breakpoint-down(680) {
+      margin: auto;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

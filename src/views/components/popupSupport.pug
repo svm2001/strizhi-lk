@@ -1,0 +1,13 @@
+mixin popupSupport()
+  .popup.popupCustom.popupSupport(id="support")
+    .popup__body
+      .popup__content
+        form.profile__change-agency
+          h3 Введите ваше обращение
+          textarea(required name="profile" placeholder="Опишите, с какой проблемой вы столкнулись").support__textarea
+          .popup__btns
+            button.btn__orange.js-support-btn-send Отправить
+        .support__success-message
+          p Благодарим за обращение
+          p Мы свяжемся с вами совсем скоро
+        button.popup__close(title="Закрыть")

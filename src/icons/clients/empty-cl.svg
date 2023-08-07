@@ -1,0 +1,14 @@
+<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="profile icons/UserList" clip-path="url(#clip0_2596_90462)">
+<path id="Vector" d="M13 23C16.4518 23 19.25 20.2018 19.25 16.75C19.25 13.2982 16.4518 10.5 13 10.5C9.54822 10.5 6.75 13.2982 6.75 16.75C6.75 20.2018 9.54822 23 13 23Z" fill="#DEDEDE"/>
+<path id="Vector_2" d="M24.25 13H39.25" stroke="#DEDEDE" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="round"/>
+<path id="Vector_3" d="M24.25 20.5H39.25" stroke="#DEDEDE" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="round"/>
+<path id="Vector_4" d="M28 28H39.25" stroke="#DEDEDE" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="round"/>
+<path id="Vector_5" d="M3 30.5C4.10938 26.1875 8.34062 23 13 23C17.6594 23 21.8906 26.1875 23 30.5" fill="#DEDEDE"/>
+</g>
+<defs>
+<clipPath id="clip0_2596_90462">
+<rect width="40" height="40" fill="white" transform="translate(0.5 0.5)"/>
+</clipPath>
+</defs>
+</svg>

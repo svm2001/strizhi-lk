@@ -1,0 +1,11 @@
+mixin popupNotification()
+  .popup.popupCustom.popupNotification(id="notification")
+    .popup__body
+      .popup__content
+        h3 Вы уверены, что хотите отметить все оповещения как прочитанные?
+        p Это действие нельзя будет отменить
+        form
+          .popup__btns.popup__btns--double
+            button.popup__close.btn__white Отменить
+            button.btn__orange Отметить прочитанными
+        button.popup__close(title="Закрыть")
